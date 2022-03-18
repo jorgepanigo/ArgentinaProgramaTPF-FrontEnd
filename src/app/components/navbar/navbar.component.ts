@@ -9,7 +9,12 @@ export class NavbarComponent implements OnInit {
 
   constructor() { }
 
+  private Loged: boolean = false;
+
   ngOnInit(): void {
   }
 
+  isLoged():boolean{
+    return this.Loged;
+  }
 }

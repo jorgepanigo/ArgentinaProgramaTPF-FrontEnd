@@ -1,1 +1,57 @@
-<p>navbar works!</p>
+ <!-- Begin NavBar -->
+
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+     <div class="container-fluid">
+       <a class="logo" href="#"><img src="./assets/logo_ap.png" alt="" height="55px" /></a>
+       <a class="logo" href="#"><img src="./assets/logo_min.png" alt="" height="55px" /></a>
+       <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+         <i class="fa fa-bars"></i>
+       </button>
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+         </ul>
+         <a href="#linkedin"><i class="fab fa-linkedin text-white fa-2x px-2"></i></a>
+         <a href="#github"><i class="fab fa-github text-white fa-2x px-2"></i></a>
+        
+
+             <form *ngIf="!isLoged()" class="d-flex">
+               <button type="button" class="btn btn-outline-light" data-bs-toggle="modal"
+                 data-bs-target="#loginModal">Login</button>
+             </form>
+
+             <form *ngIf="isLoged()" class="d-flex">
+              <button type="button" class="btn btn-outline-light" data-bs-toggle="modal"
+                data-bs-target="#loginModal">LogOut</button>
+            </form>
+             
+
+
+
+       
+       </div>
+     </div>
+     <!-- Begin Login Modal -->
+ 
+     <div *ngIf="!isLoged()" class="modal" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+       <div class="modal-dialog">
+         <div class="modal-content">
+           <div class="modal-header">
+             <h5 class="modal-title text-center" id="exampleModalLabel">Inicio De Sesion</h5>
+             <button  type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+           </div>
+           <div  class="modal-body">
+             <form action="">
+               <input type="text" class="form-control" name="usuario" placeholder="Usuario">
+               <input type="password" class="form-control mt-4" name="password" placeholder="Password">
+               <div class="d-grid gap-2">
+                 <button type="button" class="btn btn-dark mt-4 " data-bs-dismiss="modal">Ingresar</button>
+               </div>
+             </form>
+           </div>
+         </div>
+       </div>
+     </div>
+     <!-- End Login Modal -->
+   </nav>
+   <!-- End NavBar -->
