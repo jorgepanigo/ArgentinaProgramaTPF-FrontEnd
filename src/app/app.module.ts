@@ -15,6 +15,7 @@ import { ExperienceItemComponent } from './components/experience/experience-item
 import { SkillItemComponent } from './components/skills/skill-item/skill-item.component';
 import { ProyectItemComponent } from './components/proyects/proyect-item/proyect-item.component';
 import { LoginComponent } from './components/login/login.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { LoginComponent } from './components/login/login.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
