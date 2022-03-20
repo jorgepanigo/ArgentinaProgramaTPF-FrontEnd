@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from 'src/app/services/login/login.service';
 
 @Component({
   selector: 'app-skills',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SkillsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ls:LoginService) { }
 
   ngOnInit(): void {
+  }
+  
+  isLoged():boolean{
+    return this.ls.isLoged();
   }
 
 }

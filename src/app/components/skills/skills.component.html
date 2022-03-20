@@ -1,1 +1,52 @@
-<p>skills works!</p>
+<section>
+     <div class="row mt-4">
+       <div class="item-skill">
+         <div class="card">
+           <div class="card-body">
+             <h5 class="card-title fw-bolder">Skills
+               <button *ngIf="isLoged()" class="btn btn-admin text-dark float-end" type="button" data-bs-toggle="modal" data-bs-target="#addSkillItemModal" >
+                 <i class="fas fa-plus"></i>
+               </button>
+
+             </h5>
+             <div class="col-12">
+               <!-- APP_SKILL_ITEM -->
+               <app-skill-item></app-skill-item>
+             </div>
+
+
+
+           </div>
+         </div>
+       </div>
+     </div>
+
+     <!-- Begin Add Skill Modal -->
+
+     <div class="modal fade" id="addSkillItemModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+       <div class="modal-dialog">
+         <div class="modal-content">
+           <div class="modal-header">
+             <h5 class="modal-title text-center" id="exampleModalLabel">Agregar Skill</h5>
+             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+           </div>
+           <div class="modal-body">
+             <form action="">
+                <input type="radio" name="tipo" value="hard" id=""/> Hard
+                 <input type="radio" name="tipo" value="hard" id=""/> Soft
+                 <input type="text" class="form-control mt-4" name="titulo_edu" placeholder="Nombre">
+                 <label for="customRange2" class="form-label mt-4">En que nivel estas?</label>
+                 <input type="range" class="form-range" min="0" max="100" id="customRange2">
+
+               <div class="d-grid gap-2">
+                 <button type="button" class="btn btn-dark mt-4 " data-bs-dismiss="modal">Agregar</button>
+               </div>
+             </form>
+           </div>
+         </div>
+       </div>
+     </div>
+     <!-- End Add Skill Modal -->
+
+
+   </section>
