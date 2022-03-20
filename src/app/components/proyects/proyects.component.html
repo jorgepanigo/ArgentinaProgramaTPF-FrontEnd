@@ -1,1 +1,44 @@
-<p>proyects works!</p>
+<section>
+     <div class="row mt-4">
+       <div class="item-educacion">
+         <div class="card">
+           <div class="card-body">
+             <h5 class="card-title fw-bolder">Proyectos
+               <button *ngIf="isLoged()"  class="btn btn-admin text-dark float-end" type="button" data-bs-toggle="modal" data-bs-target="#addProyectItemModal" >
+                 <i class="fas fa-plus"></i>
+               </button>
+             </h5>
+            <!-- APP_PROYECT_ITEM -->
+            <app-proyect-item></app-proyect-item>
+             
+
+           </div>
+         </div>
+       </div>
+
+     </div>
+      <!-- Begin Add Experience Modal -->
+
+      <div class="modal fade" id="addProyectItemModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+       <div class="modal-dialog">
+         <div class="modal-content">
+           <div class="modal-header">
+             <h5 class="modal-title text-center" id="exampleModalLabel">Agregar Proyecto</h5>
+             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+           </div>
+           <div class="modal-body">
+             <form action="">
+                 <input type="text" class="form-control mt-4" name="nombre" placeholder="Nombre de Proyecto">
+                 <textarea rows="10" class="form-control mt-4" name="usuario" placeholder="Usuario"></textarea>
+                 <input type="text" class="form-control mt-4" name="nombre" placeholder="Link">
+               <div class="d-grid gap-2">
+                 <button type="button" class="btn btn-dark mt-4 " data-bs-dismiss="modal">Agregar</button>
+               </div>
+             </form>
+           </div>
+         </div>
+       </div>
+     </div>
+     <!-- End Add Experience Modal -->
+
+   </section>

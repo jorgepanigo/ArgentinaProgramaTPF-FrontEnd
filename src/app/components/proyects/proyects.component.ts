@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from 'src/app/services/login/login.service';
 
 @Component({
   selector: 'app-proyects',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProyectsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ls:LoginService) { }
 
   ngOnInit(): void {
   }
-
+  
+  isLoged():boolean{
+    return this.ls.isLoged();
+  }
 }
