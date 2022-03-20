@@ -1,1 +1,53 @@
-<p>education works!</p>
+<section>
+     <div class="row mt-4">
+
+
+       <div class="item-educacion">
+         <div class="card">
+           <div class="card-body">
+             <h5 class="card-title fw-bolder">Educacion
+               <button *ngIf="isLoged()" class="btn btn-admin text-dark float-end" type="button" data-bs-toggle="modal" data-bs-target="#addEducationItemModal" >
+                 <i class="fas fa-plus"></i>
+               </button>
+             </h5>
+             <!-- APP_EDUCACION_ITEM -->
+             <app-education-item></app-education-item>
+
+
+           </div>
+         </div>
+       </div>
+
+     </div>
+
+        <!-- Begin Add Education Modal -->
+
+        <div class="modal fade" id="addEducationItemModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+           <div class="modal-content">
+             <div class="modal-header">
+               <h5 class="modal-title text-center" id="exampleModalLabel">Agregar Educacion</h5>
+               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+             </div>
+             <div class="modal-body">
+               <form action="">
+                 <input type="text" class="form-control mt-4" name="institucion_edu" placeholder="Entidad Educativa">
+                 <input class="form-control mt-2" type="file" id="formFile" placeholder="Logo">
+                 <hr>
+                 <input type="text" class="form-control mt-4" name="titulo_edu" placeholder="Titulo">
+                 <div class="row mt-4 px-3">
+                   <input type="date" class="form-control col " name="desde_edu" placeholder="Desde">
+                   <input type="date" class="form-control col" name="hasta_edu" placeholder="Hasta">
+                 </div>
+                 <div class="d-grid gap-2">
+                   <button type="button" class="btn btn-dark mt-4 " data-bs-dismiss="modal">Agregar</button>
+                 </div>
+               </form>
+             </div>
+           </div>
+         </div>
+       </div>
+       <!-- End Add Education Modal -->
+   
+
+   </section>
