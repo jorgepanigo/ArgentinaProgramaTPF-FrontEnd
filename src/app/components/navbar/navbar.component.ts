@@ -25,11 +25,15 @@ export class NavbarComponent implements OnInit {
   }
   
   login(){
-    this.ls.validateUser();
+    this.ls.validateUser(this.usuario, this.password);
+   
+
   }
 
   logout(){
-    this.ls.validateUser();
+    
+    this.ls.validateUser(this.usuario, this.password);
+    
   }
   
  
