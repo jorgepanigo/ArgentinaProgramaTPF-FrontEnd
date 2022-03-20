@@ -1,1 +1,57 @@
-/* You can add global styles to this file, and also import other style files */
+.btn-admin{  
+   
+     
+     border-radius: 50%;
+    cursor: pointer;
+    
+     text-align: center;
+     
+     
+}
+
+.img-header{
+     
+     min-height: 250px;
+     min-width: 656px;
+     object-fit:contain;
+   
+     
+}
+
+
+.img-perfil{
+     width: 200px;
+     margin:0px 40px 0px 40px;
+     height: 200px;
+    
+     
+     position: absolute;
+     top:20vw;
+     left:0px;
+}
+
+.img-perfil img{
+     border-radius: 50%;
+     border: 4px solid white;
+     
+     
+}
+
+.img-perfil i{
+     position: absolute;
+     top:170px;
+     left:170px;
+}
+
+.img-perfil1{
+     width: 150px;
+     height: 150px;
+     position: absolute;
+     top: 95px;
+     left:0px;
+     margin: 35px;
+     border-radius: 50%;
+     border: 3px solid white;
+
+}
+
