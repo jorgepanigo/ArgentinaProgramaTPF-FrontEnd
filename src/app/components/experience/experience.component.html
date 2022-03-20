@@ -1,1 +1,63 @@
-<p>experience works!</p>
+<section>
+     <div class="row mt-4">
+
+
+       <div class="item-educacion">
+         <div class="card">
+           <div class="card-body">
+             <h5 class="card-title fw-bolder">Experiencia
+               <button *ngIf="isLoged()" class="btn btn-admin text-dark float-end" type="button" data-bs-toggle="modal" data-bs-target="#addExperienceItemModal" >
+                 <i class="fas fa-plus"></i>
+               </button>
+             </h5>
+             <div class="card mb-3 border-0">
+             <!-- EXPERIENCE_ITEM_COMPONENT -->
+             <app-experience-item></app-experience-item>
+             
+             </div>
+           </div>
+         </div>
+       </div>
+
+     </div>
+
+      <!-- Begin Add Experience Modal -->
+
+      <div class="modal fade" id="addExperienceItemModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+       <div class="modal-dialog">
+         <div class="modal-content">
+           <div class="modal-header">
+             <h5 class="modal-title text-center" id="exampleModalLabel">Agregar Experiencia</h5>
+             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+           </div>
+           <div class="modal-body">
+             <form action="">
+               
+
+
+                 <input type="text" class="form-control mt-4" name="empleador" placeholder="Empresa">
+                 
+                 <input class="form-control mt-2" type="file" id="formFile" placeholder="Logo">
+                 <hr>
+                 
+                 <input type="text" class="form-control mt-4" name="puesto" placeholder="Puesto">
+
+                 <div class="row mt-1">
+                   <input type="date" class="form-control col m-3" name="desde_exp" placeholder="Desde">
+                   <input type="date" class="form-control col m-3" name="hasta_exp" placeholder="Hasta">
+                 </div>
+                 
+               
+              
+               
+               <div class="d-grid gap-2">
+                 <button type="button" class="btn btn-dark mt-4 " data-bs-dismiss="modal">Agregar</button>
+               </div>
+             </form>
+           </div>
+         </div>
+       </div>
+     </div>
+     <!-- End Add Experience Modal -->
+
+   </section>
