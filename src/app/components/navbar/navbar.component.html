@@ -20,8 +20,8 @@
                  data-bs-target="#loginModal">Login</button>
              </form>
 
-             <form *ngIf="isLoged()" class="d-flex">
-              <button type="button" class="btn btn-outline-light" data-bs-toggle="modal"
+             <form *ngIf="isLoged()" (ngSubmit)="logout()" class="d-flex">
+              <button type="submit" class="btn btn-outline-light" data-bs-toggle="modal"
                 data-bs-target="#loginModal">LogOut</button>
             </form>
              
@@ -41,11 +41,19 @@
              <button  type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
            </div>
            <div  class="modal-body">
-             <form action="">
-               <input type="text" class="form-control" name="usuario" placeholder="Usuario">
-               <input type="password" class="form-control mt-4" name="password" placeholder="Password">
+             <form (ngSubmit)="login()" >
+               <input 
+               type="text" 
+               class="form-control" 
+               name="usuario"
+               placeholder="Usuario">
+               <input 
+               type="password" 
+               class="form-control mt-4" 
+               name="password" 
+               placeholder="Password">
                <div class="d-grid gap-2">
-                 <button type="button" class="btn btn-dark mt-4 " data-bs-dismiss="modal">Ingresar</button>
+                 <button type="submit" class="btn btn-dark mt-4 " data-bs-dismiss="modal">Ingresar</button>
                </div>
              </form>
            </div>

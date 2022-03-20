@@ -16,6 +16,8 @@ import { SkillItemComponent } from './components/skills/skill-item/skill-item.co
 import { ProyectItemComponent } from './components/proyects/proyect-item/proyect-item.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule } from '@angular/forms';
+import { PersonaService } from './services/persona/persona.service';
+import { LoginService } from './services/login/login.service';
 
 
 @NgModule({
@@ -40,7 +42,10 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    PersonaService,
+    LoginService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
