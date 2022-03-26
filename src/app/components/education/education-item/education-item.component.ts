@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Education } from 'src/app/persona.model';
 import { LoginService } from 'src/app/services/login/login.service';
 
 @Component({
@@ -9,6 +10,8 @@ import { LoginService } from 'src/app/services/login/login.service';
 export class EducationItemComponent implements OnInit {
 
   constructor(private ls:LoginService) { }
+
+  @Input() itemEdu:Education;
 
   ngOnInit(): void {
   }

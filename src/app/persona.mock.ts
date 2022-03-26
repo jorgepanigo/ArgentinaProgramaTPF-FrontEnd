@@ -19,7 +19,7 @@ export const persona:Persona = {
                     {
                          "id":2,
                          "institution":"Escuela Nacional de Comercio Nro 4",
-                         "graduate":"Bachiller",
+                         "graduate":"Bachiller Contable",
                          "beginDate":new Date(),
                          "endDate":new Date()        
                     }

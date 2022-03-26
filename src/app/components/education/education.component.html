@@ -11,7 +11,10 @@
                </button>
              </h5>
              <!-- APP_EDUCACION_ITEM -->
-             <app-education-item></app-education-item>
+             <app-education-item
+             *ngFor="let element of listEdu, let i=index"
+             [itemEdu]="element" 
+             ></app-education-item>
 
 
            </div>
