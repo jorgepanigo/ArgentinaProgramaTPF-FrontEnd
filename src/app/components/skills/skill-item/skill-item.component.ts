@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Skill } from 'src/app/persona.model';
 import { LoginService } from 'src/app/services/login/login.service';
-import { LoginComponent } from '../../login/login.component';
 
 @Component({
   selector: 'app-skill-item',
@@ -8,6 +8,8 @@ import { LoginComponent } from '../../login/login.component';
   styleUrls: ['./skill-item.component.css']
 })
 export class SkillItemComponent implements OnInit {
+
+  @Input() skillItem:Skill;
 
   constructor(private ls:LoginService) { }
 

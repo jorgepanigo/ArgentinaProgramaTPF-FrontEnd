@@ -11,7 +11,10 @@
              </h5>
              <div class="col-12">
                <!-- APP_SKILL_ITEM -->
-               <app-skill-item></app-skill-item>
+               <app-skill-item
+               *ngFor="let element of skillList"
+               [skillItem]="element"
+               ></app-skill-item>
              </div>
 
 

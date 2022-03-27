@@ -50,7 +50,7 @@ export const persona:Persona = {
           {
                "id":1,
                "nombre":"JavaScript",
-               "progress":55,
+               "progress":90,
                "type":"Hard"
           },
           {
