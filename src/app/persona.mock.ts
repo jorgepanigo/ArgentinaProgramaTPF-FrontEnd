@@ -2,9 +2,15 @@ import { Persona } from "./persona.model";
 
 export const persona:Persona = {
      "id":1,
+     "perfilImage":"#",
      "firstName":"Jorge",
      "lastName":"Panigo",
      "user":"jpanigo",
+     "city":"La Plata",
+     "country":"Argentina",
+     "profession": "Jr FullStack Java Developer",
+     "mail":"jorgepanigo@gmail.com",
+     "phone":"2215988023",
      "password":"admin",
      "aboutMe":"Esta es una breve descripcion de mi perfil y mis objetivos laborales y profesionales",
      "education":[

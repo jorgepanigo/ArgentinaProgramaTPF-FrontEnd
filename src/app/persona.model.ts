@@ -2,8 +2,14 @@
 
 export interface Persona{
      id?:number;
+     perfilImage:string;
      firstName:string;
      lastName:string;
+     city:string;
+     country:string;
+     profession:string;
+     mail:string;
+     phone:string;
      user:string;
      password:string;
      aboutMe:string;
