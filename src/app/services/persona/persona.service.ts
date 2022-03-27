@@ -12,4 +12,8 @@ export class PersonaService {
   getCV():Persona{
     return persona;
   }
+
+  saveAboutMe(description:string){
+    persona.aboutMe = description;
+  }
 }

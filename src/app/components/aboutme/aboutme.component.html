@@ -13,7 +13,7 @@
                  <i class="fas fa-pen"></i>
                </button>
              </h5>
-               <p class="card-text">{{aboutme}}</p>
+               <p class="card-text">{{description}}</p>
               </div>
          </div>
        </div>
@@ -28,13 +28,23 @@
            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
          </div>
          <div class="modal-body">
-           <form action="">
-             <textarea rows="10" class="form-control" name="usuario" placeholder=""></textarea>
+
+
+           <form action="" (submit)="guardarCambios()">
+             <textarea 
+             rows="10"
+              class="form-control" 
+              name="descripcion" 
+              placeholder=""
+              [(ngModel)]="description"
+              ></textarea>
              
              <div class="d-grid gap-2">
-               <button type="button" class="btn btn-dark mt-4 " data-bs-dismiss="modal">Modificar</button>
+               <button type="submit" class="btn btn-dark mt-4 " data-bs-dismiss="modal">Modificar</button>
              </div>
            </form>
+
+
          </div>
        </div>
      </div>

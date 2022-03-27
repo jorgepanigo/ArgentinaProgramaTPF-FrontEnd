@@ -9,17 +9,21 @@ import { PersonaService } from 'src/app/services/persona/persona.service';
 })
 export class AboutmeComponent implements OnInit {
 
-  aboutme:string = "";
+  description:string = "";
 
   constructor(private ps:PersonaService,
               private lg:LoginService) { }
 
   ngOnInit(): void {
-   this.aboutme = this.ps.getCV().aboutMe;
+   this.description = this.ps.getCV().aboutMe;
   }
 
   isLoged():boolean{
     return this.lg.isLoged();
+  }
+
+  guardarCambios(){
+    this.ps.saveAboutMe(this.description);
   }
 
 }
