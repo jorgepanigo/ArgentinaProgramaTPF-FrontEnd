@@ -36,7 +36,7 @@ export const persona:Persona = {
                               "company":"Fravega",
                               "position":"Jefe de Salon",
                               "beginDate":new Date(),
-                              "endDate":new Date()
+                              "endDate":new Date()                            
                          },
                          {
                               "id":2,

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Experience } from 'src/app/persona.model';
 import { LoginService } from 'src/app/services/login/login.service';
 
 @Component({
@@ -7,6 +8,8 @@ import { LoginService } from 'src/app/services/login/login.service';
   styleUrls: ['./experience-item.component.css']
 })
 export class ExperienceItemComponent implements OnInit {
+
+  @Input() itemExp:Experience;
 
   constructor(private ls:LoginService) { }
 

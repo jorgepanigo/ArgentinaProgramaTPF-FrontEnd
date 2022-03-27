@@ -5,7 +5,7 @@
      </div>
      <div class="col-md-11">
        <div class="card-body">
-         <h6 class="card-title fw-bolder">UTN - Universidad Tecnologica Nacional
+         <h6 class="card-title fw-bolder">{{itemExp.company}}
            <button *ngIf="isLoged()"  class="btn btn-admin text-dark float-end" type="button" data-bs-toggle="modal" data-bs-target="#addEducationItemModal" >
              <i class="fas fa-trash float-end px-2"></i>
            </button>
@@ -14,8 +14,8 @@
              <i class="fas fa-pen float-end"></i>
            </button>
          </h6>
-         <p class="card-text">Ingenieria en Sistemas Computacionales</p>
-         <p class="card-text"><small class="text-muted">2019 - 2023</small></p>
+         <p class="card-text">{{itemExp.position}}</p>
+         <p class="card-text"><small class="text-muted">{{itemExp.beginDate | date:"yyyy"}} - {{itemExp.endDate | date:"yyyy"}}</small></p>
        </div>
      </div>
    </div>

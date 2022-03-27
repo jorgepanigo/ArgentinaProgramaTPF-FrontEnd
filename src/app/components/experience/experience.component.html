@@ -12,7 +12,10 @@
              </h5>
              <div class="card mb-3 border-0">
              <!-- EXPERIENCE_ITEM_COMPONENT -->
-             <app-experience-item></app-experience-item>
+             <app-experience-item
+             *ngFor="let element of experienceList"
+             [itemExp]="element"
+             ></app-experience-item>
              
              </div>
            </div>
