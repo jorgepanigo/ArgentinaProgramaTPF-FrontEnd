@@ -9,7 +9,10 @@
                </button>
              </h5>
             <!-- APP_PROYECT_ITEM -->
-            <app-proyect-item></app-proyect-item>
+            <app-proyect-item
+            *ngFor="let element of proyectList"
+            [proyectItem]="element"
+            ></app-proyect-item>
              
 
            </div>

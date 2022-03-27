@@ -73,6 +73,12 @@ export const persona:Persona = {
                "title":"Silicon Viajes",
                "description":"Proyecto final del curso dictado por el Silicon Misiones en 2021. Sistema de gestion de paquetes turisticos para agencia de viajes.",
                "githubLink":"#"
+          },
+          {
+               "id":3,
+               "title":"Portfolio Web - Argentina Programa",
+               "description":"Proyecto Final realizado con arquitectura distribuida. Fontend Angular, banckend Java (SpringBoot) y MySql.",
+               "githubLink":"http://www.google.com"
           }
      ]
      

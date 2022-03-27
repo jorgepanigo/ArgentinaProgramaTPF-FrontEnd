@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Proyect } from 'src/app/persona.model';
 import { LoginService } from 'src/app/services/login/login.service';
 
 @Component({
@@ -8,6 +9,8 @@ import { LoginService } from 'src/app/services/login/login.service';
 })
 export class ProyectItemComponent implements OnInit {
 
+  @Input() proyectItem:Proyect;
+  
   constructor(private ls:LoginService) { }
 
   ngOnInit(): void {

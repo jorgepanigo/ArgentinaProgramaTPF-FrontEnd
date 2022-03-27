@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Persona, Proyect } from 'src/app/persona.model';
 import { LoginService } from 'src/app/services/login/login.service';
+import { PersonaService } from 'src/app/services/persona/persona.service';
 
 @Component({
   selector: 'app-proyects',
@@ -8,9 +10,15 @@ import { LoginService } from 'src/app/services/login/login.service';
 })
 export class ProyectsComponent implements OnInit {
 
-  constructor(private ls:LoginService) { }
+  proyectList:Proyect[] = [];
+
+  constructor(private ls:LoginService,
+              private ps:PersonaService) { }
 
   ngOnInit(): void {
+
+    this.proyectList = this.ps.getCV().proyects;
+
   }
   
   isLoged():boolean{

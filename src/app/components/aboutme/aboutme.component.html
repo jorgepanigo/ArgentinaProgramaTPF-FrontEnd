@@ -1,1 +1,47 @@
-<p>aboutme works!</p>
+ <!-- Begin About Me -->
+ <section>
+     <div class="row mt-4">
+
+
+       <div class="item-educacion">
+         <div class="card">
+           <div class="card-body">
+             
+             <h5 class="card-title fw-bold">About Me
+
+               <button *ngIf="isLoged()" class="btn btn-admin text-dark float-end" type="button" data-bs-toggle="modal" data-bs-target="#aboutModal" >
+                 <i class="fas fa-pen"></i>
+               </button>
+             </h5>
+               <p class="card-text">{{aboutme}}</p>
+              </div>
+         </div>
+       </div>
+
+        <!-- Begin About Modal -->
+
+   <div  *ngIf="isLoged()"  class="modal fade" id="aboutModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog">
+       <div class="modal-content">
+         <div class="modal-header">
+           <h5 class="modal-title text-center" id="exampleModalLabel">Modificar Datos</h5>
+           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+         </div>
+         <div class="modal-body">
+           <form action="">
+             <textarea rows="10" class="form-control" name="usuario" placeholder=""></textarea>
+             
+             <div class="d-grid gap-2">
+               <button type="button" class="btn btn-dark mt-4 " data-bs-dismiss="modal">Modificar</button>
+             </div>
+           </form>
+         </div>
+       </div>
+     </div>
+   </div>
+   <!-- End About Modal -->
+
+     </div>
+
+   </section>
+   <!-- End About -->
