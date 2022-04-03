@@ -16,7 +16,6 @@ export class AppComponent implements OnInit {
   }
   ngOnInit(): void {
     this.perso = this.ps.getCV();
-    console.log(this.perso);
   }
 
   }
