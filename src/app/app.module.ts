@@ -14,10 +14,10 @@ import { EducationItemComponent } from './components/education/education-item/ed
 import { ExperienceItemComponent } from './components/experience/experience-item/experience-item.component';
 import { SkillItemComponent } from './components/skills/skill-item/skill-item.component';
 import { ProyectItemComponent } from './components/proyects/proyect-item/proyect-item.component';
-import { LoginComponent } from './components/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { PersonaService } from './services/persona/persona.service';
 import { LoginService } from './services/login/login.service';
+import { HttpClientModule } from "@angular/common/http";
 
 
 @NgModule({
@@ -34,13 +34,13 @@ import { LoginService } from './services/login/login.service';
     ExperienceItemComponent,
     SkillItemComponent,
     ProyectItemComponent,
-    LoginComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     PersonaService,

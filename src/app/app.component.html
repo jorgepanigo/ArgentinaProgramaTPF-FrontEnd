@@ -1,11 +1,27 @@
-<app-navbar></app-navbar>
+
+<app-navbar
+     [github]="persona.github"
+     [linkedin]="persona.linkedin">
+</app-navbar>
 <div class="container">
      
-     <app-header></app-header>
-     <app-aboutme></app-aboutme>
-     <app-education ></app-education>
-     <app-experience></app-experience>
-     <app-skills></app-skills>
-     <app-proyects></app-proyects>
+     <app-header
+     [header]="header"
+     ></app-header>
+     <app-aboutme 
+     [description]="persona.aboutMe"
+     ></app-aboutme>
+     <app-education 
+     [listEdu]="persona.educationList"
+     ></app-education>
+     <app-experience
+     [experienceList]="persona.experienceList"
+     ></app-experience>
+     <app-skills
+     [skillList]="persona.skillList"
+     ></app-skills>
+     <app-proyects
+     [proyectList]="persona.proyectList"
+     ></app-proyects>
 
 </div>

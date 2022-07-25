@@ -1,9 +1,15 @@
 <!-- Begin Skill Item -->
 <div class="progress col mt-4" style="height: 50px;">
-     <div class="progress-bar text-start px-4 fw-bolder" role="progressbar" style="width: {{skillItem.progress}}%;">
-       <span class="">
-         <!-- <i class="fab fa-js fa-3x"></i> --> {{skillItem.nombre}}
-       </span>
+     <div class="progress-bar text-start fw-bolder row" role="progressbar"  style="width:{{skillItem.progress}}%;">
+       <div class="col-6 my-auto mx-auto">
+          <span class="px-3">
+            {{skillItem.name}}
+          </span>
+       </div>
+       <div class="text-white col-6 my-auto mx-auto">
+          <i *ngIf="isLoged()" (click)="onDeleteItem()"  class="fas fa-trash float-end btn-admin float-end"></i>
+          <i *ngIf="isLoged()" (click)="onEditItem()" class="fas fa-pen btn-admin float-end px-3" data-bs-toggle="modal" data-bs-target="#addSkillItemModal"></i>
+       </div>
      </div>
-   </div>
-   <!-- End Skill Item -->
+</div>
+<!-- End Skill Item -->

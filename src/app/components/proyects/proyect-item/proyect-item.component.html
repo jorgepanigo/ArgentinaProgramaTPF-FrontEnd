@@ -2,7 +2,10 @@
  <div class="card border-0">
 
      <div class="card-body">
-       <h5 class="card-title">{{proyectItem.title}}</h5>
+       <h5 class="card-title fw-bolder fs-6">{{proyectItem.title}}
+        <i *ngIf="isLoged()" (click)="onDeleteItem()"  class="fas fa-trash float-end px-2 btn-admin float-end"></i>
+        <i *ngIf="isLoged()" (click)="onEditItem()" class="fas fa-pen btn-admin float-end" data-bs-toggle="modal" data-bs-target="#addProyectItemModal"></i>
+       </h5>
        <p class="card-text">
          {{proyectItem.description}}
        </p>

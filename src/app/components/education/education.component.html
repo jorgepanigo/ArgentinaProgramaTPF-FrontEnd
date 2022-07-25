@@ -6,16 +6,17 @@
          <div class="card">
            <div class="card-body">
              <h5 class="card-title fw-bolder py-2">Educacion
-               <button *ngIf="isLoged()" (click)="FormEdu.resetForm()" class="btn btn-admin text-dark float-end" type="button" data-bs-toggle="modal" data-bs-target="#addEducationItemModal" >
-                 <i class="fas fa-plus"></i>
-               </button>
+              
+                 <i *ngIf="isLoged()" (click)="FormEdu.resetForm(); toggleEdit(false);" class=" fas fa-plus float-end btn-admin"  data-bs-toggle="modal" data-bs-target="#addEducationItemModal"></i>
+           
              </h5>
              <!-- APP_EDUCACION_ITEM -->
              <app-education-item
              *ngFor="let element of listEdu, let i=index"
              [itemEdu]="element" 
              [index]="i" 
-             (onEditEduItem)="onEditItem($event)"
+             (onDeleteEduItem)="onDeleteEduItem($event)"
+             (onEditEduItem)="onEditEduItem($event)"
              
              >
              </app-education-item>
@@ -38,7 +39,16 @@
              </div>
              <div class="modal-body">
                <form #FormEdu="ngForm" action="" (ngSubmit)="addItem(FormEdu); FormEdu.resetForm()">
-                 <input 
+                <input 
+               
+                type="hidden" 
+                class="form-control mt-4" 
+                name="id" 
+                value=""
+                [(ngModel)]="item.id"
+                >
+                
+                <input 
                  id="institucion"
                  type="text" 
                  class="form-control mt-4" 
@@ -47,18 +57,19 @@
                  [(ngModel)]="item.institution"
                  >
                  <input 
-                 class="form-control mt-2" 
-                 type="file" 
-                 id="formFile" 
-                 placeholder="Logo"
+                 type="text" 
+                 class="form-control mt-4" 
+                 name="institutionImg" 
+                 placeholder="Link Imagenes de la institucion"
+                 [(ngModel)]="item.institutionImg"
                  >
                  <hr>
                  <input 
                  type="" 
                  class="form-control mt-4" 
-                 name="graduate" 
+                 name="degree" 
                  placeholder="Titulo"
-                 [(ngModel)]="item.graduate"
+                 [(ngModel)]="item.degree"
                  >
                  <div class="row mt-4 px-3">
                    <input 
@@ -76,10 +87,10 @@
                    [(ngModel)]="item.endDate"
                    >
                  </div>
-                 <div class="d-grid gap-2">
-                   <button type="button" (click)="saveItem()" class="btn btn-dark mt-4 " data-bs-dismiss="modal">Guardar Cambios</button>
+                 <div *ngIf="isEdit()" class="d-grid gap-2">
+                   <button type="button"  (click)="updateItem()" class="btn btn-dark mt-4 " data-bs-dismiss="modal">Guardar Cambios</button>
                  </div>
-                 <div class="d-grid gap-2">
+                 <div *ngIf="!isEdit()" class="d-grid gap-2">
                   <button type="submit"  class="btn btn-dark mt-4 " data-bs-dismiss="modal">Agregar Item</button>
                 </div>
                </form>

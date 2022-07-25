@@ -2,7 +2,8 @@
 
 export interface Persona{
      id?:number;
-     perfilImage:string;
+     profileImage:string;
+     profileBackground:string;
      firstName:string;
      lastName:string;
      city:string;
@@ -13,10 +14,12 @@ export interface Persona{
      user:string;
      password:string;
      aboutMe:string;
-     education:Education[];
-     experience:Experience[];
-     skills:Skill[];
-     proyects:Proyect[];
+     educationList:Education[];
+     experienceList:Experience[];
+     skillList:Skill[];
+     proyectList:Proyect[];
+     linkedin:string;
+     github:string;
 
 
 }
@@ -25,7 +28,8 @@ export interface Education{
 
      id?:number;
      institution:string;
-     graduate:string;
+     institutionImg:string;
+     degree:string;
      beginDate:Date;
      endDate:Date;
 
@@ -37,12 +41,13 @@ export interface Experience{
      position:string;
      beginDate:Date;
      endDate:Date;
+     companyImg:string;
 }
 
 export interface Skill{
      id?:number;
      type:string;
-     nombre:string;
+     name:string;
      progress:number;
 
 }
@@ -51,5 +56,29 @@ export interface Proyect{
      id?:number;
      title:string;
      description:string;
-     githubLink:string;
+     githubLink?:string;
+     image?:string;
+     category?:string;
+
+}
+
+export interface Header{
+     
+     id:number;
+     profileImage:string;
+     profileBackground:string;
+     firstName:string;
+     lastName:string;
+     city:string;
+     country:string;
+     profession:string;
+     mail:string;
+     phone:string;
+     linkedin:string;
+     github:string;
+}
+
+export interface User{
+     user:string;
+     password:string;
 }

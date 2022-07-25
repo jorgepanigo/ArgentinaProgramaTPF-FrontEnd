@@ -1,5 +1,6 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { LoginService } from 'src/app/services/login/login.service';
+import {Md5} from 'ts-md5/dist/md5';
 
 
 @Component({
@@ -9,6 +10,9 @@ import { LoginService } from 'src/app/services/login/login.service';
 })
 export class NavbarComponent implements OnInit {
 
+  @Input() github:string;
+  @Input() linkedin:string;
+  
   constructor(private ls:LoginService) { }
   
   usuario:string ="";
@@ -25,14 +29,17 @@ export class NavbarComponent implements OnInit {
   }
   
   login(){
-    this.ls.validateUser(this.usuario, this.password);
+
+    
+    this.ls.validateUser(this.usuario, Md5.hashStr(this.password));
+    //this.ls.loginUser(this.usuario, Md5.hashStr(this.password));
    
 
   }
 
   logout(){
     
-    this.ls.validateUser(this.usuario, this.password);
+    this.ls.validateUser(this.usuario, Md5.hashStr(this.password));
     
   }
   

@@ -1,89 +1,98 @@
 {
-     "persona":[
-          {
-          "id":"1",
-          "perfilImage":"#",
-          "firstName":"Jorge",
-          "lastName":"Panigo",
-          "user":"jpanigo",
-          "city":"La Plata",
-          "country":"Argentina",
-          "profession": "Jr FullStack Java Developer",
-          "mail":"jorgepanigo@gmail.com",
-          "phone":"2215988023",
-          "password":"admin",
-          "aboutMe":"Esta es una breve descripcion de mi perfil y mis objetivos laborales y profesionales",
-          "education":[
-                         {
-                              "id":"1",
-                              "institution":"UTN Facultad Regional La Plata",
-                              "graduate":"Ingenieria en Sistemas",
-                              "beginDate":"12/12/2022",
-                              "endDate":"12/12/2022"
-                              
-                         },
-                         {
-                              "id":"2",
-                              "institution":"Escuela Nacional de Comercio Nro 4",
-                              "graduate":"Bachiller Contable",
-                              "beginDate":"12/12/2022",
-                              "endDate":"12/12/2022"        
-                         }
-                    ],
-          "experience":[
-                              {
-                                   "id":"1",
-                                   "company":"Fravega",
-                                   "position":"Jefe de Salon",
-                                   "beginDate":"12/12/2022",
-                              "endDate":"12/12/2022"                            
-                              },
-                              {
-                                   "id":"2",
-                                   "company":"Musimundo",
-                                   "position":"Subgerente",
-                                   "beginDate":"12/12/2022",
-                                   "endDate":"12/12/2022"
-                              }
-                         ],
-          "skills":[
-               {
-                    "id":"1",
-                    "nombre":"JavaScript",
-                    "progress":"90",
-                    "type":"Hard"
-               },
-               {
-                    "id":"2",
-                    "nombre":"Java",
-                    "progress":"75",
-                    "type":"Hard"
-               }
-
-                    ],
-          "proyects":[
-               {
-                    "id":"1",
-                    "title":"TAGAT",
-                    "description":"Proyecto de desarrollo de software para una terminal tactil que cubra de demanda de mostrador del departamento de alumnos de la Universidad Tecnologica Nacional FRLP",
-                    "githubLink":"#"
-               },
-               {
-                    "id":"2",
-                    "title":"Silicon Viajes",
-                    "description":"Proyecto final del curso dictado por el Silicon Misiones en 2021. Sistema de gestion de paquetes turisticos para agencia de viajes.",
-                    "githubLink":"#"
-               },
-               {
-                    "id":"3",
-                    "title":"Portfolio Web - Argentina Programa",
-                    "description":"Proyecto Final realizado con arquitectura distribuida. Fontend Angular, banckend Java (SpringBoot) y MySql.",
-                    "githubLink":"http://www.google.com"
-               }
-          ]
-
-          }
-
-          ]     
-     
+  "persona": [
+    {
+      "id": "1",
+      "perfilImage": "#",
+      "firstName": "Jorge",
+      "lastName": "Panigo",
+      "user": "jpanigo",
+      "city": "La Plata",
+      "country": "Argentina",
+      "profession": "Jr FullStack Java Developer",
+      "mail": "jorgepanigo@gmail.com",
+      "phone": "2215988023",
+      "password": "admin",
+      "aboutMe": "Estas es una descripcion en donde detallo mis objetivos personales y lo que puedo dar a la compañia que me contrate. ",
+      "education": [
+        {
+          "institution": "UTN - Facultad Regional La Plata",
+          "graduate": "Ingenieria en sistemas",
+          "beginDate": null,
+          "endDate": "2022-05-20"
+        },
+        {
+          "institution": "EEM Nro 4",
+          "graduate": "Bachiller Contable",
+          "beginDate": "2022-05-11",
+          "endDate": "2022-05-04"
+        },
+        {
+          "institution": "Escuela Nro 49 Gral Jose de San Martin",
+          "graduate": null,
+          "beginDate": "2022-05-12",
+          "endDate": "2022-05-17"
+        }
+      ],
+      "experience": [
+        {
+          "beginDate": "2022-04-13",
+          "endDate": "2022-04-13",
+          "company": "Fravega SACIEI",
+          "position": "Vendedor de Salon"
+        },
+        {
+          "company": "Musimundo",
+          "position": "Subgerente de Sucursal",
+          "beginDate": "2022-05-11",
+          "endDate": "2022-05-05"
+        },
+        {
+          "company": "Soho Jeans",
+          "position": "Encargado",
+          "beginDate": "2022-05-18",
+          "endDate": "2022-05-10"
+        }
+      ],
+      "skills": [
+        {
+          "nombre": "HTML",
+          "progress": 64
+        },
+        {
+          "nombre": "SpringBoot",
+          "progress": 63
+        },
+        {
+          "nombre": "Java",
+          "progress": 90
+        },
+        {
+          "nombre": "JavaScript",
+          "progress": 43
+        },
+        {
+          "nombre": "Angular",
+          "progress": 70
+        }
+      ],
+      "proyects": [
+        {
+          "id": "2",
+          "title": "Silicon Viajes Argentina",
+          "description": "Proyecto final del curso dictado por el Silicon Misiones en 2021. Sistema de gestion de paquetes turisticos para agencia de viajes.",
+          "githubLink": "#"
+        },
+        {
+          "title": "TAGAT Terminal",
+          "description": "Terminal Autoservicio para cubrir la demanda de mostrador del dto de alumnos de la UTN FRLP.",
+          "githubLink": ""
+        },
+        {
+          "title": "Challeges 1 ONE ",
+          "description": "Encriptador de Texto desarrollado en HTML, CSS y JavaScript",
+          "githubLink": null
+        }
+      ]
+    }
+  ]
 }

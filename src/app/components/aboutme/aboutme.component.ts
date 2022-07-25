@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { LoginService } from 'src/app/services/login/login.service';
 import { PersonaService } from 'src/app/services/persona/persona.service';
 
@@ -9,21 +10,44 @@ import { PersonaService } from 'src/app/services/persona/persona.service';
 })
 export class AboutmeComponent implements OnInit {
 
-  description:string = "";
+
+  @Input() description:string;
+  @Output() onUpdate:EventEmitter<string> = new EventEmitter();
+  textAbout:string = "";
+  
 
   constructor(private ps:PersonaService,
               private lg:LoginService) { }
 
   ngOnInit(): void {
-   this.description = this.ps.getCV().aboutMe;
+    this.textAbout = this.description;
+    
+    
   }
 
   isLoged():boolean{
     return this.lg.isLoged();
   }
 
-  guardarCambios(){
-    this.ps.saveAboutMe(this.description);
+  guardarCambios(form:NgForm){
+
+    let text = form.value.description;
+
+    this.ps.updateAboutMe(text).subscribe(
+      resp => {
+        
+        this.description = resp;
+      }
+    );
+    //this.onUpdate.emit(this.description);
   }
 
+  onEdit(){
+
+    this.textAbout = this.description;
+
+  }
+  
+
+ 
 }

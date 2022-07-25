@@ -6,16 +6,17 @@
          <div class="card">
            <div class="card-body">
              <h5 class="card-title fw-bolder">Experiencia
-               <button *ngIf="isLoged()" class="btn btn-admin text-dark float-end" type="button" data-bs-toggle="modal" data-bs-target="#addExperienceItemModal" >
-                 <i class="fas fa-plus"></i>
-               </button>
+                 <i *ngIf="isLoged()" (click)="FormExp.resetForm(); toggleEdit(false)" class="fas fa-plus btn-admin float-end" data-bs-toggle="modal" data-bs-target="#addExperienceItemModal"></i>
              </h5>
              <div class="card mb-3 border-0">
              <!-- EXPERIENCE_ITEM_COMPONENT -->
              <app-experience-item
-             *ngFor="let element of experienceList"
+             *ngFor="let element of experienceList, let i=index"
              [itemExp]="element"
-             ></app-experience-item>
+             [index]="i"
+             (onEdit)="onEditExp($event)"
+             (onDelete)="deleteItem($event)">
+            </app-experience-item>
              
              </div>
            </div>
@@ -34,28 +35,67 @@
              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
            </div>
            <div class="modal-body">
-             <form action="">
-               
+             <form #FormExp="ngForm" (ngSubmit)="addItem(FormExp)"  action="">
 
+              <input 
+                 type="hidden" 
+                 class="form-control mt-4" 
+                 name="id" 
+                 placeholder="Empresa"
+                 [(ngModel)]="item.id">
+              
 
-                 <input type="text" class="form-control mt-4" name="empleador" placeholder="Empresa">
+                 <input 
+                 type="text" 
+                 class="form-control mt-4" 
+                 name="company" 
+                 placeholder="Empresa"
+                 [(ngModel)]="item.company">
+
+                 <input 
+                 type="text" 
+                 class="form-control mt-4" 
+                 name="companyImg" 
+                 placeholder="Logo de la Empresa"
+                 [(ngModel)]="item.companyImg">
                  
-                 <input class="form-control mt-2" type="file" id="formFile" placeholder="Logo">
-                 <hr>
-                 
-                 <input type="text" class="form-control mt-4" name="puesto" placeholder="Puesto">
+                 <input 
+                 type="text" 
+                 class="form-control mt-4" 
+                 name="position" 
+                 placeholder="Puesto"
+                 [(ngModel)]="item.position">
 
                  <div class="row mt-1">
-                   <input type="date" class="form-control col m-3" name="desde_exp" placeholder="Desde">
-                   <input type="date" class="form-control col m-3" name="hasta_exp" placeholder="Hasta">
+                   <input type="date" 
+                   class="form-control col m-3" 
+                   name="beginDate" 
+                   placeholder="Desde"
+                   [(ngModel)]="item.beginDate"
+                   [value]="item.beginDate"
+                   >
+                   <input 
+                   type="date" 
+                   class="form-control col m-3" 
+                   name="endDate" 
+                   placeholder="Hasta"
+                   [(ngModel)]="item.endDate"
+                   [value]="item.endDate"
+                   
+                   >
+
                  </div>
                  
                
               
                
                <div class="d-grid gap-2">
-                 <button type="button" class="btn btn-dark mt-4 " data-bs-dismiss="modal">Agregar</button>
+                 <button *ngIf="!isEdit()" type="submit" class="btn btn-dark mt-4 " data-bs-dismiss="modal">Agregar Experiencia</button>
                </div>
+
+               <div class="d-grid gap-2">
+                <button *ngIf="isEdit()" type="button" (click)="updateItem()" class="btn btn-dark mt-4 " data-bs-dismiss="modal">Guardar Cambios</button>
+              </div>
              </form>
            </div>
          </div>

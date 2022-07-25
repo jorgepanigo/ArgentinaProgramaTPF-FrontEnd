@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Education } from 'src/app/persona.model';
 import { LoginService } from 'src/app/services/login/login.service';
 import { PersonaService } from 'src/app/services/persona/persona.service';
+import { UiService } from 'src/app/services/ui.service';
 
 @Component({
   selector: 'app-education-item',
@@ -11,12 +12,14 @@ import { PersonaService } from 'src/app/services/persona/persona.service';
 export class EducationItemComponent implements OnInit {
 
   constructor(private ls:LoginService,
-              private ps:PersonaService) { }
+              private ui:UiService) { }
 
   @Input() itemEdu:Education;
   @Input() index:number;
   @Output() onEditEduItem:EventEmitter<number> = new EventEmitter<number>();
-
+  @Output() onDeleteEduItem:EventEmitter<number> = new EventEmitter<number>();
+ 
+  
   
   ngOnInit(): void {
 
@@ -29,17 +32,15 @@ export class EducationItemComponent implements OnInit {
 
   onEdit(){
     
+    this.ui.toggleEdit(true);
     this.onEditEduItem.emit(this.index);
     
-
   }
 
   onDelete(){
-    
-    if(confirm("Esta seguro de desea eliminar este item?")){
-      this.ps.deleteEducationItem(this.index);
-    }
-    
+
+    this.onDeleteEduItem.emit(this.index);
+   
   }
 
 

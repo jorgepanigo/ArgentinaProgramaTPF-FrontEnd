@@ -11,23 +11,27 @@
 
 .img-header{
      
-     min-height: 250px;
-     min-width: 656px;
-     object-fit:contain;
+     
    
      
 }
+
+.mnegativo{
+     margin: -80px;
+}
+
 
 
 .img-perfil{
      width: 200px;
      margin:0px 40px 0px 40px;
      height: 200px;
+     min-height: 150px;
     
-     
+     /*
      position: absolute;
-     top:20vw;
-     left:0px;
+      top:20vw;
+     left:0px; */
 }
 
 .img-perfil img{
@@ -39,8 +43,11 @@
 
 .img-perfil i{
      position: absolute;
-     top:170px;
-     left:170px;
+     top:20px;
+     left:20px;
+     background-color: white;
+     border-radius: 50%;
+     padding:8px;
 }
 
 .img-perfil1{
@@ -55,3 +62,6 @@
 
 }
 
+.progress{
+     font-size: 1rem;
+}

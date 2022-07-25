@@ -4,14 +4,15 @@
          <div class="card">
            <div class="card-body">
              <h5 class="card-title fw-bolder">Proyectos
-               <button *ngIf="isLoged()"  class="btn btn-admin text-dark float-end" type="button" data-bs-toggle="modal" data-bs-target="#addProyectItemModal" >
-                 <i class="fas fa-plus"></i>
-               </button>
+                 <i *ngIf="isLoged()" (click)="FormProyect.resetForm(); toggleEdit(false)" class="fas fa-plus btn-admin float-end" data-bs-toggle="modal" data-bs-target="#addProyectItemModal"></i>
              </h5>
             <!-- APP_PROYECT_ITEM -->
             <app-proyect-item
-            *ngFor="let element of proyectList"
+            *ngFor="let element of proyectList, let i=index"
             [proyectItem]="element"
+            [index]="i"
+            (onDelete)="onDeleteItem($event)"
+            (onUpdate)="onUpdateItem($event)"
             ></app-proyect-item>
              
 
@@ -30,13 +31,57 @@
              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
            </div>
            <div class="modal-body">
-             <form action="">
-                 <input type="text" class="form-control mt-4" name="nombre" placeholder="Nombre de Proyecto">
-                 <textarea rows="10" class="form-control mt-4" name="usuario" placeholder="Usuario"></textarea>
-                 <input type="text" class="form-control mt-4" name="nombre" placeholder="Link">
+             <form #FormProyect="ngForm" (ngSubmit)="addItem(FormProyect)">
+                
+                <input 
+                type="hidden" 
+                class="form-control mt-4" 
+                name="id" 
+                [(ngModel)]="proyectItem.id"
+                >
+
+                <input 
+                 type="text" 
+                 class="form-control mt-4" 
+                 name="title" 
+                 placeholder="Nombre de Proyecto"
+                 [(ngModel)]="proyectItem.title"
+                 >
+                 <input 
+                 type="text" 
+                 class="form-control mt-4" 
+                 name="category" 
+                 placeholder="Categoria"
+                 [(ngModel)]="proyectItem.category"
+                 >
+                 <textarea 
+                 rows="8" 
+                 class="form-control mt-4" 
+                 name="description"
+                 placeholder="Descripcion"
+                 [(ngModel)]="proyectItem.description"
+                 ></textarea>
+                 <input 
+                 type="text" 
+                 class="form-control mt-4" 
+                 name="image" 
+                 placeholder="Link de Screemshot"
+                 [(ngModel)]="proyectItem.image"
+                 >
+                 <input 
+                 type="text" 
+                 class="form-control mt-4" 
+                 name="githubLink"
+                 placeholder="Link Repositorio"
+                 [(ngModel)]="proyectItem.githubLink"
+                 >
+               
                <div class="d-grid gap-2">
-                 <button type="button" class="btn btn-dark mt-4 " data-bs-dismiss="modal">Agregar</button>
+                 <button *ngIf="!isEdit()" type="submit" class="btn btn-dark mt-4" data-bs-dismiss="modal">Agregar Proyecto</button>
                </div>
+               <div class="d-grid gap-2">
+                <button *ngIf="isEdit()" (click)="updateItem(FormProyect)" type="button" class="btn btn-dark mt-4 " data-bs-dismiss="modal">Guardar Cambios</button>
+              </div>
              </form>
            </div>
          </div>

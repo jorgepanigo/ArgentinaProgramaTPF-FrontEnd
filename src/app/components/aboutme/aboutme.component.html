@@ -8,12 +8,9 @@
            <div class="card-body">
              
              <h5 class="card-title fw-bold">About Me
-
-               <button *ngIf="isLoged()" class="btn btn-admin text-dark float-end" type="button" data-bs-toggle="modal" data-bs-target="#aboutModal" >
-                 <i class="fas fa-pen"></i>
-               </button>
+                 <i *ngIf="isLoged()" (click)="onEdit()" class="fas fa-pen float-end btn-admin" data-bs-toggle="modal" data-bs-target="#aboutModal"></i>
              </h5>
-               <p class="card-text">{{description}}</p>
+               <p class="card-text">{{this.description}}</p>
               </div>
          </div>
        </div>
@@ -30,13 +27,13 @@
          <div class="modal-body">
 
 
-           <form action="" (submit)="guardarCambios()">
+           <form #FormAbout="ngForm" action="" (ngSubmit)="guardarCambios(FormAbout)">
              <textarea 
              rows="10"
               class="form-control" 
-              name="descripcion" 
+              name="description" 
               placeholder=""
-              [(ngModel)]="description"
+              [(ngModel)]="this.textAbout"
               ></textarea>
              
              <div class="d-grid gap-2">

@@ -2,29 +2,170 @@
 
      <div class="card mt-2">
 
-       <img src="./assets/bg-header.jpg" class="card-img-top img-header " alt="...">
-       <div class="img-perfil">
-          <img src="./assets/aboutme.jpg" class="card-img-top d-inline " alt="...">
-          <button *ngIf="isLoged()" class="btn btn-admin text-dark d-inline" type="button" data-bs-toggle="modal" data-bs-target="#addEducationItemModal" >
-           <i class="fas fa-pen"></i>
-         </button> 
-
-       </div>
-       <div class="card-body"></div>
+       <!-- <img [src]="header.profileBackground" class="card-img-top img-header " alt="..."> -->
+        <img src="../../../assets/FOndo.jpg" class="card-img-top img-header " alt="...">
+      
+       <div class="card-body mnegativo"></div>
          <div class="row p-3">
            <div class="col-6">
-             <h4 class="card-title fw-bolder">{{firstName}} {{lastName}}</h4>
-             <p class="card-text">{{profession}} <br>
-              {{city}} ({{country}}) <a href="#">Informacion de Contacto</a></p>
+              <div class="img-perfil">
+                <img [src]="header.profileImage" class="card-img-top d-inline " alt="...">
+                <button  >
+                <i *ngIf="isLoged()" (click)="onUpdateHeader()" class="text-dark d-inline fas fa-pen" type="button" data-bs-toggle="modal" data-bs-target="#updatePersonalData"></i>
+                </button> 
+              </div>
+             <h4 class="card-title fw-bolder">{{header.firstName}} {{header.lastName}}</h4>
+             <p class="card-text">{{header.profession}} <br>
+             {{header.city}} ({{header.country}})  <!-- <a href="#">Informacion de Contacto</a></p>
              <button type="submit" class="btn btn-primary">Tengo Interes en</button>
              <button type="submit" class="btn btn-light">Añadir Seccion</button>
-             <button type="submit" class="btn btn-light">Mas</button>
+             <button type="submit" class="btn btn-light">Mas</button> -->
            </div>
            <div class="col-6">
-             <img src="./assets/logo_ap_black.png" alt="" height="120px" class="float-end"/>
+             <img src="./assets/logo_ap_black.png" alt="" height="120px" class="float-end" style="margin-top: 240px;"/>
             
            </div>
   
      </div>
+
+      <!-- Begin Add Education Modal -->
+
+      <div class="modal fade" id="updatePersonalData" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-center" id="exampleModalLabel">Datos Personales</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form #FormHeader="ngForm" action="" (ngSubmit)="updateHeader(FormHeader); FormHeader.resetForm()">
+               
+                <input 
+                  id="id"
+                  type="hidden" 
+                  class="form-control mt-4 col" 
+                  name="id"
+                  [(ngModel)]="data.id"
+                >
+
+                <div class="row px-3">
+                  
+
+                  
+                  <input 
+                  id="firstName"
+                  type="text" 
+                  class="form-control mt-4 col" 
+                  name="firstName" 
+                  placeholder="Nombre"
+                  [(ngModel)]="data.firstName"
+                  >
+                  
+                  <input 
+                  id="lastName"
+                  type="text" 
+                  class="form-control mt-4 col" 
+                  name="lastName" 
+                  placeholder="Apellido"
+                  [(ngModel)]="data.lastName"
+                  >
+                </div> 
+
+
+                  <input 
+                  id="profileImage"
+                  type="text" 
+                  class="form-control mt-4" 
+                  name="profileImage" 
+                  placeholder="URL Imagen de Perfil"
+                  [(ngModel)]="data.profileImage"
+                  >
+                  <input 
+                  id="profileBackground"
+                  type="text" 
+                  class="form-control mt-4" 
+                  name="profileBackground" 
+                  placeholder="URL Imagen de Portada"
+                  [(ngModel)]="data.profileBackground"
+                  >
+
+                <div class="row px-2">
+                  <input 
+                  id="city"
+                  type="text" 
+                  class="form-control mt-4 col" 
+                  name="city" 
+                  placeholder="Ciudad"
+                  [(ngModel)]="data.city"
+                  >
+                  <input 
+                  id="country"
+                  type="text" 
+                  class="form-control mt-4 col" 
+                  name="country" 
+                  placeholder="Pais"
+                  [(ngModel)]="data.country"
+                  >
+                </div>
+                <div class="row px-2">
+                  <input 
+                  id="linkedin"
+                  type="text" 
+                  class="form-control mt-4 col" 
+                  name="linkedin" 
+                  placeholder="LinkedIn"
+                  [(ngModel)]="data.linkedin"
+                  >
+                  <input 
+                  id="gitbub"
+                  type="text" 
+                  class="form-control mt-4 col" 
+                  name="github" 
+                  placeholder="GitHub"
+                  [(ngModel)]="data.github"
+                  >
+                </div>
+                <div class="row px-2">
+
+                  <input 
+                  id="profession"
+                  type="text" 
+                  class="form-control mt-4 col" 
+                  name="profession" 
+                  placeholder="Profesion"
+                  [(ngModel)]="data.profession"
+                  >
+                  <input 
+                  id="phone"
+                  type="text" 
+                  class="form-control mt-4 col" 
+                  name="phone" 
+                  placeholder="Telefono"
+                  [(ngModel)]="data.phone"
+                  >
+                </div>  
+
+                  <input 
+                  id="mail"
+                  type="text" 
+                  class="form-control mt-4" 
+                  name="mail" 
+                  placeholder="E-Mail"
+                  [(ngModel)]="data.mail"
+                  >
+                  
+               
+                
+                
+                <div class="d-grid gap-2">
+                  <button type="submit" class="btn btn-dark mt-4 " data-bs-dismiss="modal">Guardar Cambios</button>
+                </div>
+                
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Add Education Modal -->
 
 

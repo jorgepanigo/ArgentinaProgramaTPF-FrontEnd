@@ -4,16 +4,20 @@
          <div class="card">
            <div class="card-body">
              <h5 class="card-title fw-bolder">Skills
-               <button *ngIf="isLoged()" class="btn btn-admin text-dark float-end" type="button" data-bs-toggle="modal" data-bs-target="#addSkillItemModal" >
-                 <i class="fas fa-plus"></i>
-               </button>
+              
+                 <i *ngIf="isLoged()" (click)="FormSkill.resetForm(); toggleEdit(false)" class="fas fa-plus btn-admin float-end"  data-bs-toggle="modal" data-bs-target="#addSkillItemModal"></i>
+             
 
              </h5>
              <div class="col-12">
                <!-- APP_SKILL_ITEM -->
                <app-skill-item
-               *ngFor="let element of skillList"
+               *ngFor="let element of skillList, let i=index"
                [skillItem]="element"
+               [index]="i"
+
+               (onDelete)="onDeleteItem($event)"
+               (onEdit)="onEditItem($event)"
                ></app-skill-item>
              </div>
 
@@ -34,16 +38,36 @@
              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
            </div>
            <div class="modal-body">
-             <form action="">
-                <input type="radio" name="tipo" value="hard" id=""/> Hard
-                 <input type="radio" name="tipo" value="hard" id=""/> Soft
-                 <input type="text" class="form-control mt-4" name="titulo_edu" placeholder="Nombre">
-                 <label for="customRange2" class="form-label mt-4">En que nivel estas?</label>
-                 <input type="range" class="form-range" min="0" max="100" id="customRange2">
+             <form #FormSkill="ngForm" (ngSubmit)="addItem(FormSkill)" >
+               
+
+                <!-- <input type="radio" name="tipo" value="hard" id=""/> Hard
+                <input type="radio" name="tipo" value="soft" id=""/> Soft -->
+                
+                <input 
+                type="text" 
+                class="form-control mt-4" 
+                name="name" 
+                placeholder="Nombre"
+                [(ngModel)]="skillItem.name"
+                >
+                <label for="customRange2" class="form-label mt-4">En que nivel estas?</label>
+                <input 
+                type="range" 
+                class="form-range" 
+                min="0" 
+                max="100" 
+                name="progress"
+                id="customRange2"
+                [(ngModel)]="skillItem.progress">
 
                <div class="d-grid gap-2">
-                 <button type="button" class="btn btn-dark mt-4 " data-bs-dismiss="modal">Agregar</button>
+                 <button *ngIf="!isEdit()" type="submit" class="btn btn-dark mt-4 " data-bs-dismiss="modal">Agregar</button>
                </div>
+
+               <div class="d-grid gap-2">
+                <button *ngIf="isEdit()" type="button" (click)="updateItem(FormSkill)" class="btn btn-dark mt-4 " data-bs-dismiss="modal">Guardar Cambios</button>
+              </div>
              </form>
            </div>
          </div>

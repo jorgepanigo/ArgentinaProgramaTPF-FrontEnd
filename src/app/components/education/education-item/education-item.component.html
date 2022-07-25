@@ -1,24 +1,15 @@
 <!--Begin Educacion Item -->
 <div class="row g-0">
      <div class="col-md-1">
-       <img src="./assets/logoUdemy.jpg" class="img-fluid rounded-start mt-3" alt="...">
+       <img [src]="itemEdu.institutionImg" class="img-fluid rounded-start mt-3" alt="...">
      </div>
      <div class="col-md-11">
        <div class="card-body">
-         <h6 class="card-title fw-normal">{{itemEdu.institution}}
-
-
-           <button *ngIf="isLoged()" (click)="onDelete()" class="btn btn-admin text-dark float-end" type="button" >
-             <i class="fas fa-trash float-end py-2"></i>
-           </button>
-          
-           <button *ngIf="isLoged()" (click)="onEdit()" class="btn btn-admin text-dark float-end" type="button" data-bs-toggle="modal" data-bs-target="#addEducationItemModal" >
-             <i  class="fas fa-pen float-end"></i>
-           </button>
-           
-           
+         <h6 class="card-title fw-bolder">{{itemEdu.institution}}
+             <i *ngIf="isLoged()" (click)="onDelete()" class="fas fa-trash float-end py-2 btn-admin float-end"></i>
+             <i *ngIf="isLoged()" (click)="onEdit()" class="fas fa-pen  btn-admin float-end py-2 px-3" data-bs-toggle="modal" data-bs-target="#addEducationItemModal"></i>
          </h6>
-         <p class="card-text">{{itemEdu.graduate}}</p>
+         <p class="card-text">{{itemEdu.degree}}</p>
          <p class="card-text"><small class="text-muted">{{itemEdu.beginDate|date:"yyyy" }} - {{itemEdu.endDate|date:"yyyy"}}</small></p>
        </div>
      </div>

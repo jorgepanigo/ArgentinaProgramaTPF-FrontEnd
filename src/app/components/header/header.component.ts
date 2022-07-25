@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Header } from 'src/app/persona.model';
 import { LoginService } from 'src/app/services/login/login.service';
 import { PersonaService } from 'src/app/services/persona/persona.service';
 
@@ -9,15 +11,9 @@ import { PersonaService } from 'src/app/services/persona/persona.service';
 })
 export class HeaderComponent implements OnInit {
   
-    perfilImage:string;
-     firstName:string;
-     lastName:string;
-     city:string;
-     country:string;
-     profession:string;
-     mail:string;
-     phone:string;
- 
+     
+    @Input() header:Header;
+    data:Header = {} as Header;
 
   constructor(private ls:LoginService,
               private ps:PersonaService) { }
@@ -26,18 +22,60 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void { 
     
-    this.firstName = this.ps.getCV().firstName;
-    this.lastName = this.ps.getCV().lastName;
-    this.city = this.ps.getCV().city;
-    this.country = this.ps.getCV().country;
-    this.profession =  this.ps.getCV().profession;
-    this.mail = this.ps.getCV().mail;
-    this.phone = this.ps.getCV().phone;
+    
+  }
+
+  onUpdateHeader(){
+
+    this.data = {
+
+      id :this.header.id,
+      firstName : this.header.firstName,
+      lastName : this.header.lastName,
+      city : this.header.city,
+      country : this.header.country,
+      phone : this.header.phone,
+      mail : this.header.mail,
+      profession : this.header.profession,
+      profileBackground : this.header.profileBackground,
+      profileImage : this.header.profileImage,
+      linkedin: this.header.linkedin,
+      github: this.header.github
+    }
+  
+  }
+
+  updateHeader(f:NgForm){
+  
+    let aux:Header = {
+      id : f.value.id,
+      firstName : f.value.firstName,
+      lastName : f.value.lastName,
+      city : f.value.city,
+      country : f.value.country,
+      phone : f.value.phone,
+      mail : f.value.mail,
+      profession : f.value.profession,
+      profileBackground : f.value.profileBackground,
+      profileImage : f.value.profileImage,
+      linkedin:f.value.linkedin,
+      github:f.value.github
+    }
+    
+    this.ps.updateHeader(aux).subscribe(
+      resp => {
+        this.header = resp;
+      }
+    );
+
+    
   }
   
   
   isLoged():boolean{
     return this.ls.isLoged();
   }
+
+
 
 }
