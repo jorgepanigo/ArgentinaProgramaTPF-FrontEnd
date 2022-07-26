@@ -17,10 +17,10 @@ export class PersonaService {
  
   
   
-  
+  api:string ="https://protected-tor-95639.herokuapp.com/0";
  
-   api:string = "http://localhost:8080/0";
- // api:string = " http://localhost:3000/persona/1"
+ // api:string = "http://localhost:8080/0";
+ 
 
   constructor(private http:HttpClient) {
     

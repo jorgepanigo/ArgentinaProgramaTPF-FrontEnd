@@ -21,7 +21,12 @@ export class LoginService {
   token:string;
   loged:boolean = false;
   usuario:User;
-  api:string = "http://localhost:8080";
+  
+  
+  api:string ="https://protected-tor-95639.herokuapp.com";
+
+
+  //api:string = "http://localhost:8080";
 
   constructor(private http:HttpClient) { }
 
