@@ -4,6 +4,7 @@ import { Skill } from 'src/app/persona.model';
 import { LoginService } from 'src/app/services/login/login.service';
 import { PersonaService } from 'src/app/services/persona/persona.service';
 import { UiService } from 'src/app/services/ui.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-skills',
@@ -28,7 +29,8 @@ export class SkillsComponent implements OnInit {
 
   constructor(private ls:LoginService,
               private ui:UiService,
-              private ps:PersonaService) { }
+              private ps:PersonaService,
+              private toastr:ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -53,10 +55,9 @@ export class SkillsComponent implements OnInit {
       this.ps.deleteSkillItem(i).subscribe(
         data => {
           this.skillList = data;
+          this.toastr.success("Eliminacion Exitosa!","Eliminar Skill");
         }
       );
-      // this.skillList.splice(i,1);
-      // this.onDelete.emit(this.skillList);
     }
     
   }
@@ -77,17 +78,14 @@ export class SkillsComponent implements OnInit {
   addItem(form:NgForm){
 
     let s:Skill = form.value;
-
     this.ps.addSkillItem(s).subscribe(
       data =>
       {
         this.skillList.push(data);
+        this.toastr.success("Carga Exitosa!","Nuevo Item de Skill");
       }
     );
     
-    // this.skillList.push(form.value);
-    // this.onAdd.emit(this.skillList);
-
   }
 
   updateItem(form:NgForm){
@@ -95,9 +93,8 @@ export class SkillsComponent implements OnInit {
     this.ps.updateSkillItem(form.value).subscribe(
       data => {
         this.skillList[this.index] = data;
+        this.toastr.success("Actualizacion Exitosa!","Actualizar Skill");
     }
     );
-    // this.skillList[this.index] = form.value;
-    // this.onUpdate.emit(this.skillList);
   }
 }

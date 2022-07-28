@@ -4,6 +4,7 @@ import { Experience } from 'src/app/persona.model';
 import { LoginService } from 'src/app/services/login/login.service';
 import { PersonaService } from 'src/app/services/persona/persona.service';
 import { UiService } from 'src/app/services/ui.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-experience',
@@ -28,7 +29,8 @@ export class ExperienceComponent implements OnInit {
   
   constructor(private ls:LoginService,
               private ui:UiService,
-              private ps:PersonaService) { }
+              private ps:PersonaService,
+              private toastr:ToastrService) { }
 
 
   ngOnInit(): void {
@@ -74,12 +76,9 @@ export class ExperienceComponent implements OnInit {
     this.ps.addExperienceItem(e).subscribe(
       data => {
         this.experienceList.push(data);
+        this.toastr.success("Carga Exitosa!","Nuevo Item de Experiencia");
       }
     );
-
-
-    // this.experienceList.push(form.value);
-    // this.onAdd.emit(this.experienceList);   
 
   }
 
@@ -90,7 +89,7 @@ export class ExperienceComponent implements OnInit {
         this.experienceList[this.index] = data;
       }
     );
-    //this.onUpdate.emit(this.listEdu);
+
     
   }
 
@@ -99,16 +98,12 @@ export class ExperienceComponent implements OnInit {
     if(confirm("Esta seguro que desea borrar este item?")){
 
       this.ps.deleteExperienceItem(i).subscribe(
-
-          
-
         data => {
           this.experienceList = data;
+          this.toastr.success("Eliminacion Exitosa!","Eliminar Experiencia");
         }
       );
 
-      // this.experienceList.splice(i,1);
-      // this.onDelete.emit(this.experienceList);
     }
   }
 

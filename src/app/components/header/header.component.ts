@@ -3,6 +3,8 @@ import { NgForm } from '@angular/forms';
 import { Header } from 'src/app/persona.model';
 import { LoginService } from 'src/app/services/login/login.service';
 import { PersonaService } from 'src/app/services/persona/persona.service';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-header',
@@ -16,12 +18,11 @@ export class HeaderComponent implements OnInit {
     data:Header = {} as Header;
 
   constructor(private ls:LoginService,
-              private ps:PersonaService) { }
+              private ps:PersonaService,
+              private toastr:ToastrService) { }
 
  
-
   ngOnInit(): void { 
-    
     
   }
 
@@ -65,17 +66,14 @@ export class HeaderComponent implements OnInit {
     this.ps.updateHeader(aux).subscribe(
       resp => {
         this.header = resp;
+        this.toastr.success("Actulizacion Exitosa!","Datos Personales");
       }
     );
-
-    
   }
   
   
   isLoged():boolean{
     return this.ls.isLoged();
   }
-
-
 
 }

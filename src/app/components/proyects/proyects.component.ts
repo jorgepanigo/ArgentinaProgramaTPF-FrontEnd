@@ -4,6 +4,7 @@ import { Persona, Proyect } from 'src/app/persona.model';
 import { LoginService } from 'src/app/services/login/login.service';
 import { PersonaService } from 'src/app/services/persona/persona.service';
 import { UiService } from 'src/app/services/ui.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-proyects',
@@ -30,7 +31,8 @@ export class ProyectsComponent implements OnInit {
   
   constructor(private ls:LoginService,
               private ui:UiService,
-              private ps:PersonaService) { }
+              private ps:PersonaService,
+              private toastr:ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -54,6 +56,8 @@ export class ProyectsComponent implements OnInit {
       this.ps.deleteProyectItem(i).subscribe(
         data => {
           this.proyectList = data;
+          this.toastr.success("Eliminacion Exitosa!","Eliminar Proyectos")
+
         }
       );
       
@@ -82,6 +86,7 @@ export class ProyectsComponent implements OnInit {
     this.ps.updateProyectItem(form.value).subscribe(
       data => {
         this.proyectList[this.index] = data;
+        this.toastr.success("Actualizacion Exitosa!","Actualizar Proyectos");
     }
     );
     
@@ -96,6 +101,7 @@ export class ProyectsComponent implements OnInit {
     this.ps.addProyectItem(p).subscribe(
       data => {
         this.proyectList = data;
+        this.toastr.success("Carga Exitosa!","Nuevo Item de Proyectos")
       }
     );
   }

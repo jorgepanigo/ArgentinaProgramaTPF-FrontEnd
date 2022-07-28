@@ -4,6 +4,7 @@ import { Education } from 'src/app/persona.model';
 import { LoginService } from 'src/app/services/login/login.service';
 import { PersonaService } from 'src/app/services/persona/persona.service';
 import { UiService } from 'src/app/services/ui.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -15,7 +16,8 @@ export class EducationComponent implements OnInit {
 
   constructor(  private ps:PersonaService,
                 private ls:LoginService,
-                private ui:UiService) { }
+                private ui:UiService,
+                private toastr: ToastrService) { }
 
 
   @Input() listEdu:Education[];
@@ -58,6 +60,7 @@ export class EducationComponent implements OnInit {
 
         let list:Education[] = data;
         this.listEdu = list;
+        this.toastr.success("Carga exitosa!","Nuevo Item de Educacion");
       }
     );
   }
@@ -84,6 +87,7 @@ export class EducationComponent implements OnInit {
         this.ps.deleteEduItem(i).subscribe(
             data => {
             this.listEdu = data;
+            this.toastr.success("Eliminacion exitosa!","Eliminar Educacion");
           }
         );
 
@@ -96,6 +100,7 @@ export class EducationComponent implements OnInit {
     this.ps.updateEducationItem(this.item).subscribe(
       data => {
         this.listEdu[this.index] = data;
+        this.toastr.success("Actualizacion exitosa!","Actualizar Educacion");
       }
     );
 

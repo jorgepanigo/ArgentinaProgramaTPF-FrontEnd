@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { LoginService } from 'src/app/services/login/login.service';
 import { PersonaService } from 'src/app/services/persona/persona.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-aboutme',
@@ -17,7 +18,8 @@ export class AboutmeComponent implements OnInit {
   
 
   constructor(private ps:PersonaService,
-              private lg:LoginService) { }
+              private lg:LoginService,
+              private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.textAbout = this.description;
@@ -37,6 +39,8 @@ export class AboutmeComponent implements OnInit {
       resp => {
         
         this.description = resp;
+        this.toastr.success("Actualizacion Exitosa","Actualizar About Me")
+        
       }
     );
     //this.onUpdate.emit(this.description);

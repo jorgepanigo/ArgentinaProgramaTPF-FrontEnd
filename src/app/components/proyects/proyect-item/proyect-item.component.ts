@@ -19,8 +19,11 @@ export class ProyectItemComponent implements OnInit {
               private ui:UiService) { }
 
   ngOnInit(): void {
+    
   }
   
+  
+
   isLoged():boolean{
     return this.ls.isLoged();
   }

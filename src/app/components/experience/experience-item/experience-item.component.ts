@@ -36,11 +36,7 @@ export class ExperienceItemComponent implements OnInit {
    onDeleteItem(){
 
       this.onDelete.emit(this.index);
-     
-    //if(confirm("Esta seguro de desea borrar este item?")){
-    //  this.ps.deleteExperienceItem(this.index);
-    //  }
-    
+       
    }
 
 }
